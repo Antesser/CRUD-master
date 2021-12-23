@@ -47,28 +47,31 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public String create (@ModelAttribute("user") @Valid User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors())
+    public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
             return "users/new";
         userService.addNewUser(user);
         return "redirect:/users";
     }
+
     @GetMapping("/users/{id}/edit")
-    public String editUser (Model model,@PathVariable("id") int id){
+    public String editUser(Model model, @PathVariable("id") int id) {
         //Вернет html форму для редактирования страницы пользователя
         model.addAttribute("user", userService.getCurrentUser(id));
         return "users/edit";
     }
+
     @PatchMapping("/users/{id}")
-    public String update (@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @PathVariable("id") int id){
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @PathVariable("id") int id) {
         //Обновляет пользователя
-        if(bindingResult.hasErrors())
+        if (bindingResult.hasErrors())
             return "users/edit";
         userService.update(user);
         return "redirect:/users";
     }
+
     @DeleteMapping("/users/{id}")
-    public String delete ( @PathVariable("id") int id){
+    public String delete(@PathVariable("id") int id) {
         //Удаляет пользователя
         userService.delete(id);
         return "redirect:/users";

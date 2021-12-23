@@ -13,16 +13,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Поле не должно быть пустым!")
-    @Size(min = 2, max = 25, message = "от 2 до 25 символов")
+    @NotEmpty(message = "Field shouldn't be empty")
+    @Size(min = 2, max = 25, message = "from 2 to 25 symbols")
     private String name;
 
-    @NotEmpty(message = "Поле не должно быть пустым!")
+    @NotEmpty(message = "Field shouldn't be empty")
     @Column(name = "surname")
     private String surname;
 
-    @NotEmpty(message = "Поле не должно быть пустым!")
-    @Email(message = "Не корректно указан адрес эл.почты")
+    @NotEmpty(message = "Field shouldn't be empty")
+    @Email(message = "Incorrect e-mail")
     private String email;
 
     public User() {

@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver() {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine((ISpringTemplateEngine) templateEngine());
         thymeleafViewResolver.setCharacterEncoding("UTF-8");
@@ -36,7 +36,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public TemplateEngine templateEngine(){
+    public TemplateEngine templateEngine() {
         SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
         springTemplateEngine.setEnableSpringELCompiler(true);
         springTemplateEngine.setTemplateResolver(templateResolver());
@@ -44,7 +44,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public ITemplateResolver templateResolver(){
+    public ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver springResourceTemplateResolver = new
                 SpringResourceTemplateResolver();
         springResourceTemplateResolver.setApplicationContext(applicationContext);

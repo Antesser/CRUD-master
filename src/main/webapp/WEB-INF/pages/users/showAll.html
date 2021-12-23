@@ -28,8 +28,12 @@
                 <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getEmail()}"></a>
             </td>
             <td>
-                <a th:href="@{/users/{id}/edit(id = ${user.getId()})}" class="c">Edit</a>
-                <a href="{/users/{id}(id = ${user.getId()})}" class="c">Delete</a>
+                <form th:method="EDIT" th:action="@{/users/{id}(id = ${user.getId()})}">
+                    <input type="submit" value="Edit"/>
+                </form>
+                <form th:method="DELETE" th:action="@{/users/{id}(id = ${user.getId()})}">
+                    <input type="submit" value="Delete"/>
+                </form>
             </td>
         </tr>
     </th:block>

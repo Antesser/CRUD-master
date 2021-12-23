@@ -27,11 +27,6 @@ public class WebConfig implements WebMvcConfigurer {
         this.applicationContext = applicationContext;
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-    }
-
     @Bean
     public ViewResolver viewResolver(){
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();

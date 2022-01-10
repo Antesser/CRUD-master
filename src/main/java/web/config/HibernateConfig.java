@@ -18,7 +18,6 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "web")
 @EnableTransactionManagement
 @PropertySource(value = "classpath:db.properties")
 @EnableJpaRepositories("web.dao")
@@ -47,6 +46,7 @@ public class HibernateConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setPackagesToScan("web");
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty("PROP_ENTITYMANAGER_PACKAGES_TO_SCAN"));
 
